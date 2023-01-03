@@ -1,0 +1,47 @@
+[versions]
+agp_version = "7.3.1"
+lifecycle_version = "2.5.1"
+room_version = "2.4.3"
+kotlin_version = "1.7.20"
+serialization_version = "1.4.0"
+
+[libraries]
+annotation = "androidx.annotation:annotation:1.5.0"
+appcompat = "androidx.appcompat:appcompat:1.6.0-rc01"
+corektx = "androidx.core:core-ktx:1.9.0"
+splashscreen = "androidx.core:core-splashscreen:1.0.0-alpha02"
+datastore-preferences = "androidx.datastore:datastore-preferences:1.0.0"
+
+lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "lifecycle_version" }
+lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycle_version" }
+lifecycle-runtimektx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle_version" }
+lifecycle-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycle_version" }
+
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room_version" }
+room-paging = { module = "androidx.room:room-paging", version.ref = "room_version" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room_version" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room_version" }
+
+paging-runtime = "androidx.paging:paging-runtime:3.1.1"
+paging-compose = "androidx.paging:paging-compose:1.0.0-alpha17"
+
+gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin_version" }
+
+coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.6.4" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android" }
+
+serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "kotlin_version" }
+serialization-gradle = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin_version" }
+
+[bundles]
+lifecycle = ["lifecycle-common", "lifecycle-process", "lifecycle-runtimektx", "lifecycle-savedstate"]
+room = ["room-runtime", "room-paging", "room-ktx"]
+coroutines = ["coroutines-core", "coroutines-android"]
+serialization = ["serialization-json"]
+
+[plugins]
+android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin_version" }
+application = { id = "com.android.application", version.ref = "agp_version" }
+library = { id = "com.android.library", version.ref = "agp_version" }
+

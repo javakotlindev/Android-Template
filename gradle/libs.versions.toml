@@ -1,0 +1,56 @@
+[versions]
+coil_version = "2.2.2"
+leakcanary = "2.9.1"
+voyager = "1.0.0-rc07"
+orbit = "4.4.0"
+ktor = "2.1.3"
+koin = "3.3.2"
+koin-ktor = "3.3.0"
+koin-compose = "3.4.1"
+detekt = "1.22.0"
+
+[libraries]
+google-services-gradle = "com.google.gms:google-services:4.3.14"
+
+coil-core = { module = "io.coil-kt:coil", version.ref = "coil_version" }
+coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil_version" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil_version" }
+
+material = "com.google.android.material:material:1.7.0"
+cascade = "me.saket.cascade:cascade-compose:2.0.0-beta1"
+
+logcat = "com.squareup.logcat:logcat:0.1"
+
+firebase-analytics = "com.google.firebase:firebase-analytics-ktx:21.2.0"
+
+leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
+leakcanary-plumber = { module = "com.squareup.leakcanary:plumber-android", version.ref = "leakcanary" }
+
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-compose" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin-ktor" }
+koin-logger = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin-ktor" }
+
+mvi-core = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbit" }
+mvi-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "orbit" }
+
+ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+voyager-navigator = { module = "ca.gosyer:voyager-navigator", version.ref = "voyager" }
+voyager-bottomsheetnavigator = { module = "ca.gosyer:voyager-bottom-sheet-navigator", version.ref = "voyager" }
+voyager-koin = { module = "ca.gosyer:voyager-koin", version.ref = "voyager" }
+voyager-viewmodel = { module = "ca.gosyer:voyager-androidx", version.ref = "voyager" }
+voyager-transitions = { module = "ca.gosyer:voyager-transitions", version.ref = "voyager" }
+
+detekt-gradle = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+
+[bundles]
+ktor = ["ktor-core", "ktor-android", "ktor-logging", "ktor-json", "ktor-content-negotiation"]
+coil = ["coil-core", "coil-gif", "coil-compose"]
+voyager = ["voyager-navigator", "voyager-transitions", "voyager-bottomsheetnavigator", "voyager-koin", "voyager-viewmodel"]
+mvi = ["mvi-core", "mvi-compose"]
+koin = ["koin-android", "koin-ktor", "koin-logger", "koin-compose"]
