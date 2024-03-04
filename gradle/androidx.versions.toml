@@ -1,15 +1,14 @@
 [versions]
-agp_version = "7.3.1"
-lifecycle_version = "2.5.1"
-room_version = "2.4.3"
-kotlin_version = "1.7.20"
-serialization_version = "1.4.0"
+agp_version = "8.2.0-rc03"
+lifecycle_version = "2.7.0"
+room_version = "2.6.1"
+kotlin_version = "1.9.22"
 
 [libraries]
-annotation = "androidx.annotation:annotation:1.5.0"
-appcompat = "androidx.appcompat:appcompat:1.6.0-rc01"
-corektx = "androidx.core:core-ktx:1.9.0"
-splashscreen = "androidx.core:core-splashscreen:1.0.0-alpha02"
+annotation = "androidx.annotation:annotation:1.7.1"
+appcompat = "androidx.appcompat:appcompat:1.6.1"
+corektx = "androidx.core:core-ktx:1.12.0"
+splashscreen = "androidx.core:core-splashscreen:1.0.1"
 datastore-preferences = "androidx.datastore:datastore-preferences:1.0.0"
 
 lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "lifecycle_version" }
@@ -22,8 +21,8 @@ room-paging = { module = "androidx.room:room-paging", version.ref = "room_versio
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room_version" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room_version" }
 
-paging-runtime = "androidx.paging:paging-runtime:3.1.1"
-paging-compose = "androidx.paging:paging-compose:1.0.0-alpha17"
+paging-runtime = "androidx.paging:paging-runtime:3.2.1"
+paging-compose = "androidx.paging:paging-compose:3.2.1"
 
 gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin_version" }
 
@@ -44,4 +43,5 @@ serialization = ["serialization-json"]
 android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin_version" }
 application = { id = "com.android.application", version.ref = "agp_version" }
 library = { id = "com.android.library", version.ref = "agp_version" }
+
 

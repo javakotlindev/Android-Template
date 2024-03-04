@@ -20,11 +20,11 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "SmartBank"
+rootProject.name = "Hayot Birja"
 include (":app")
-include(":modules:domain")
-include(":modules:presentation")
-include(":modules:core")
-include(":modules:data-source:data")
-include(":modules:data-source:local")
-include(":modules:data-source:remote")
+include(":domain")
+include(":presentation")
+include(":common")
+include(":data-source:data")
+include(":data-source:local")
+include(":data-source:remote")

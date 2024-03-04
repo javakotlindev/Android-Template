@@ -1,0 +1,2 @@
+#!/bin/sh
+./gradlew detektAll || exit 1

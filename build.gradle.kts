@@ -12,6 +12,7 @@ buildscript {
     alias(androidx.plugins.application) apply false
     alias(androidx.plugins.library) apply false
     alias(androidx.plugins.android) apply false
+    id("detekt.plugin")
 }
 
 subprojects {
@@ -19,21 +20,21 @@ subprojects {
 }
 
 fun BaseExtension.baseConfig() {
-    compileSdkVersion(33)
+    compileSdkVersion(34)
 
     defaultConfig.apply {
-        minSdk = 21
-        targetSdk = 33
+        minSdk = 23
+        targetSdk = 34
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
         }
         tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = JavaVersion.VERSION_17.toString()
             }
         }
     }
@@ -58,6 +59,17 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 }
 
 tasks {
+    register("setupProject") {
+        group = "utils"
+        dependsOn("installGitHooks")
+    }
+    register("installGitHooks", Copy::class) {
+        group = "utils"
+        description = "Adding githook to local working copy, this must be run manually"
+        from("${rootProject.rootDir}/.githooks/pre-commit")
+        into("${rootProject.rootDir}/.git/hooks")
+        fileMode = 0x755
+    }
     register<Delete>("clean") {
         delete(rootProject.buildDir)
     }

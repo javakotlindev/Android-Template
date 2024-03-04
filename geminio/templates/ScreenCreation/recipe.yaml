@@ -1,0 +1,52 @@
+requiredParams:
+  name: ScreenCreation
+  description: Creates screen based data
+
+widgets:
+  - stringParameter:
+      id: componentPrefix
+      name: Screen Prefix
+      help: Prefix of the screen and other classes to create
+      constraints:
+        - nonempty
+        - unique
+        - class
+      default: Blank
+
+  - stringParameter:
+      id: packagePath
+      name: Package path in feature package, for example "uz.zamin.service"
+      suggest: ${componentPrefix}
+      constraints:
+        - nonempty
+      default: blank
+
+globals:
+  - stringParameter:
+      id: componentName
+      value: ${componentPrefix}
+
+  - stringParameter:
+      id: uiName
+      value: ${componentPrefix}Screen
+
+recipe:
+  - instantiateAndOpen:
+      from: root/ViewModel.kt.ftl
+      to: ${currentDirOut}/${componentName}ViewModel.kt
+
+  - instantiate:
+      from: root/State.kt.ftl
+      to: ${currentDirOut}/${componentName}State.kt
+
+  - instantiate:
+      from: root/Event.kt.ftl
+      to: ${currentDirOut}/${componentName}Intent.kt
+
+  - instantiate:
+      from: root/SideEffect.kt.ftl
+      to: ${currentDirOut}/${componentName}SideEffect.kt
+
+  - instantiate:
+      from: root/Screen.kt.ftl
+      to: ${currentDirOut}/${uiName}.kt

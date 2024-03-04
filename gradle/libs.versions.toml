@@ -1,27 +1,39 @@
 [versions]
-coil_version = "2.2.2"
+coil_version = "2.5.0"
 leakcanary = "2.9.1"
 voyager = "1.0.0-rc07"
-orbit = "4.4.0"
-ktor = "2.1.3"
-koin = "3.3.2"
+ktor = "2.3.2"
+koin = "3.5.3"
 koin-ktor = "3.3.0"
-koin-compose = "3.4.1"
-detekt = "1.22.0"
+koin-compose = "3.5.3"
+detekt = "1.23.3"
+agp = "8.2.0-rc03"
+kotlin = "1.9.22"
+core-ktx = "1.12.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+appcompat = "1.6.1"
+material = "1.11.0"
+
+[plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 [libraries]
 google-services-gradle = "com.google.gms:google-services:4.3.14"
+detekt-gradle = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 
 coil-core = { module = "io.coil-kt:coil", version.ref = "coil_version" }
 coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil_version" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil_version" }
 
-material = "com.google.android.material:material:1.7.0"
-cascade = "me.saket.cascade:cascade-compose:2.0.0-beta1"
+material = "com.google.android.material:material:1.11.0"
 
 logcat = "com.squareup.logcat:logcat:0.1"
 
-firebase-analytics = "com.google.firebase:firebase-analytics-ktx:21.2.0"
+firebase-analytics = "com.google.firebase:firebase-analytics-ktx:21.5.1"
 
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 leakcanary-plumber = { module = "com.squareup.leakcanary:plumber-android", version.ref = "leakcanary" }
@@ -31,9 +43,6 @@ koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = 
 koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin-ktor" }
 koin-logger = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin-ktor" }
 
-mvi-core = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbit" }
-mvi-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "orbit" }
-
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
@@ -41,16 +50,19 @@ ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation",
 ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 voyager-navigator = { module = "ca.gosyer:voyager-navigator", version.ref = "voyager" }
-voyager-bottomsheetnavigator = { module = "ca.gosyer:voyager-bottom-sheet-navigator", version.ref = "voyager" }
 voyager-koin = { module = "ca.gosyer:voyager-koin", version.ref = "voyager" }
-voyager-viewmodel = { module = "ca.gosyer:voyager-androidx", version.ref = "voyager" }
+voyager-androidX = { module = "ca.gosyer:voyager-androidx", version.ref = "voyager" }
 voyager-transitions = { module = "ca.gosyer:voyager-transitions", version.ref = "voyager" }
 
-detekt-gradle = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+com-google-android-material-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 ktor = ["ktor-core", "ktor-android", "ktor-logging", "ktor-json", "ktor-content-negotiation"]
 coil = ["coil-core", "coil-gif", "coil-compose"]
-voyager = ["voyager-navigator", "voyager-transitions", "voyager-bottomsheetnavigator", "voyager-koin", "voyager-viewmodel"]
-mvi = ["mvi-core", "mvi-compose"]
+voyager = ["voyager-navigator", "voyager-transitions", "voyager-koin", "voyager-androidX"]
 koin = ["koin-android", "koin-ktor", "koin-logger", "koin-compose"]
